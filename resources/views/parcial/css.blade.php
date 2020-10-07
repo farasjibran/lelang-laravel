@@ -4,3 +4,6 @@
 
 <!-- Custom styles for this template-->
 <link href="{{ asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+
+<link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.1/sweetalert2.css">

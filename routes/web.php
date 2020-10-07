@@ -24,7 +24,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route For Admin Role
 Route::group(['middleware' => 'CheckRole:admin'], function () {
     Route::get('/dashboardadmin', 'AdminController@dashboard')->name('dashboard');
+    Route::get('/viewgoods', 'AdminController@viewgoods')->name('viewgoods');
 });
+
+// CRUD
+Route::get('/getgoods', 'AdminController@databarang');
 
 
 // Route For User Role
