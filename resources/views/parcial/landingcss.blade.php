@@ -20,3 +20,5 @@
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
+
+<link href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
