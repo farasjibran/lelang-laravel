@@ -12,16 +12,19 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+    // view dashboard
     public function dashboard()
     {
         return view('admin.dashboard');
     }
 
+    // view goods
     public function viewgoods()
     {
         return view('admin.viewgoods');
     }
 
+    // show databarang in datatable
     public function dataBarang()
     {
         $databarang = Barang::get();
@@ -34,7 +37,7 @@ class AdminController extends Controller
             $tbody[] = $harga;
             $tbody[] = $value['deskripsi_barang'];
             $tbody[] = $value['kategori_barang'];
-            $img = "<img style='width: 100%;' src='{{ asset('gambarbarang/')}}" . $value['foto_barang'] . "' ?>";
+            $img = "<img style='width: 80%;' src='gambarbarang/" . $value['foto_barang'] . "' >";
             $tbody[] = $img;
             $tbody[] = $value['status'];
             $btn = "<button type='button' class='btn btn-primary btn-icon-split editbtn' name='editbtn' data-toggle='modal' id=" . $value['id_barang'] . " 	style='padding-right: 6%;'>
@@ -58,4 +61,35 @@ class AdminController extends Controller
             echo json_encode(array('data' => 0));
         }
     }
+
+    // function add goods
+    public function addData(Request $request)
+    {
+        if ($_POST["action"] == "Add") {
+            $imageName = $request->user_image->getClientOriginalName();
+            $request->user_image->move(public_path('gambarbarang'), $imageName);
+
+            $barang = new Barang();
+            $barang->nama_barang = $request->namabarang;
+            $barang->harga_awal = $request->hargabarang;
+            $barang->deskripsi_barang = $request->deskripsiitem;
+            $barang->kategori_barang = $request->kategoriitem;
+            $barang->foto_barang = $imageName;
+            $barang->status = $request->status;
+            $barang->save();
+            echo 'Data Inserted';
+        }
+    }
+
+    // function upload image
+    // public function upload_image()
+    // {
+    //     if (isset($_FILES['user_image'])) {
+    //         $extension = explode('.', $_FILES['user_image']['name']);
+    //         $new_name = rand() . '.' . $extension[1];
+    //         $destination = './public/gambarbarang/' . $new_name;
+    //         move_uploaded_file($_FILES['user_image']['tmp_name'], $destination);
+    //         return $new_name;
+    //     }
+    // }
 }

@@ -56,54 +56,52 @@
     </div>
 </div>
 
-<!-- Add User Modal-->
-<div class="modal fade" id="foodAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Food Data</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                <h5 class="modal-title" id="exampleModalLabel">Add Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="" enctype="multipart/form-data">
+            <form id="formtambah" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Food Name</label>
-                        <input type="text" name="nama_makanan" class="form-control @error('foodname') is-invalid @enderror" placeholder="Enter food name" required autofocus>
-                        @error('foodname')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <label>Name Goods</label>
+                        <input type="text" name="namabarang" id="nmabarang" class="form-control" placeholder="Enter Name Goods">
                     </div>
                     <div class="form-group">
-                        <label>Price Food</label>
-                        <input type="text" name="harga" class="form-control @error('pricefood') is-invalid @enderror" placeholder="Enter price" required>
-                        @error('pricefood')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <label>Price Goods</label>
+                        <input type="text" name="hargabarang" id="hrgbarang" class="form-control" placeholder="Enter Price Goods">
                     </div>
                     <div class="form-group">
-                        <label>Food Stock</label>
-                        <input type="text" name="stok_makanan" class="form-control @error('stockfood') is-invalid @enderror" placeholder="Enter stock"> </input>
-                        @error('stockfood')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <label>Description Item</label>
+                        <textarea type="text" name="deskripsiitem" id="deskitem" class="form-control" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Food Picture</label>
-                        <input type="file" name="foto" class="form-control">
+                        <label>Category Item</label>
+                        <select class="custom-select drpdw" name="kategoriitem" id="ktgritem">
+                            <option selected>Select Category</option>
+                            <option value="Basketball Shoe">Basketball Shoe</option>
+                            <option value="T-Shirt">T-Shirt</option>
+                            <option value="Jersey">Jersey</option>
+                            <option value="Hoodie">Hoodie</option>
+                            <option value="Shorts">Shorts</option>
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label>Picture</label>
+                        <input type="file" name="user_image" id="user_image" class="form-control">
+                    </div>
+                    <input value="open" type="hidden" id="statusbarang" name="status" class="form-control">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success">Add Data</button>
+                    <input type="hidden" name="action" class="btn btn-success" value="Add" />
+                    <input type="submit" value="Add" name="action" class="btn btn-success" />
                 </div>
             </form>
         </div>

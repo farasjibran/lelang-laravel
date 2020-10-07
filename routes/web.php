@@ -29,6 +29,7 @@ Route::group(['middleware' => 'CheckRole:admin'], function () {
 
 // CRUD
 Route::get('/getgoods', 'AdminController@databarang');
+Route::post('/addgoods', 'AdminController@adddata');
 
 
 // Route For User Role
