@@ -108,4 +108,68 @@
     </div>
 </div>
 
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="formedit" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Thumbnail</label>
+                        <span id="foto_barang"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Name Goods</label>
+                        <input type="text" name="namabarang" id="namabarang" class="form-control" placeholder="Enter Name Goods">
+                    </div>
+                    <div class="form-group">
+                        <label>Price Goods</label>
+                        <input type="text" name="hargabarang" id="hargabarang" class="form-control" placeholder="Enter Price Goods">
+                    </div>
+                    <div class="form-group">
+                        <label>Description Item</label>
+                        <textarea type="text" name="deskripsiitem" id="deskripsiitem" class="form-control" placeholder="Enter Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Category Item</label>
+                        <select class="custom-select drpdw" name="kategoriitem" id="kategoriitem">
+                            <option selected>Select Category</option>
+                            <option value="Basketball Shoe">Basketball Shoe</option>
+                            <option value="T-Shirt">T-Shirt</option>
+                            <option value="Jersey">Jersey</option>
+                            <option value="Hoodie">Hoodie</option>
+                            <option value="Shorts">Shorts</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Picture</label>
+                        <input type="file" name="user_image" id="image" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="custom-select drpdw" name="status" id="status">
+                            <option selected>Status</option>
+                            <option value="open">Open</option>
+                            <option value="close">Close</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <input type="hidden" name="id_barang" id="id_barang" class="btn btn-success" value="" />
+                    <input type="hidden" name="action" class="btn btn-success" value="Edit" />
+                    <input type="submit" value="Edit" name="action" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @endsection
