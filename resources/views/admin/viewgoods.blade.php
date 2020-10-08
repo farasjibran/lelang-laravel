@@ -21,7 +21,7 @@
                     <i class="fas fa-plus fa-sm fa-fw" style="color: green;">
                     </i> Add Data
                 </a>
-                <a class="dropdown-item" href="">
+                <a class="dropdown-item" href="{{ route('printpdf')}}">
                     <i class="fas fa-file fa-sm fa-fw" style="color: blue;">
                     </i> Generate Pdf
                 </a>

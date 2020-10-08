@@ -25,14 +25,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'CheckRole:admin'], function () {
     Route::get('/dashboardadmin', 'AdminController@dashboard')->name('dashboard');
     Route::get('/viewgoods', 'AdminController@viewgoods')->name('viewgoods');
+
+    // CRUD
+    Route::get('/getgoods', 'AdminController@databarang');
+    Route::post('/addgoods', 'AdminController@adddata');
+    Route::post('/getid', 'AdminController@getIdBarang');
+    Route::post('/editgoods', 'AdminController@editgoods');
+    Route::post('/deletegoods', 'AdminController@deletegoods');
+
+    // PRINT & GENERATE
+    Route::get('/pdf', 'AdminController@printpdf')->name('printpdf');
 });
 
-// CRUD
-Route::get('/getgoods', 'AdminController@databarang');
-Route::post('/addgoods', 'AdminController@adddata');
-Route::post('/getid', 'AdminController@getIdBarang');
-Route::post('/editgoods', 'AdminController@editgoods');
-Route::post('/deletegoods', 'AdminController@deletegoods');
+
 
 
 // Route For User Role

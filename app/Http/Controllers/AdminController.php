@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -123,5 +124,20 @@ class AdminController extends Controller
     {
         $barang = Barang::find($_POST["id_barang"]);
         $barang->delete();
+    }
+
+    // public function viewpdf()
+    // {
+    //     $barang = Barang::all();
+    //     return view('cetakpdf', ['barangs' => $barang]);
+    // }
+
+    // function cetak data pdf
+    public function printpdf()
+    {
+        $barang = Barang::all();
+        $pdf = PDF::loadview('cetakpdf', ['barangs' => $barang]);
+        $pdf->save(storage_path() . '_voicegood.pdf');
+        return $pdf->download('databarang.pdf');
     }
 }

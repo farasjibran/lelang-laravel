@@ -44,9 +44,9 @@ jQuery(document).ready(function () {
                         title: 'Menunggu',
                         html: 'Memproses data',
                         onOpen: () => {
-                            swal.showLoading()
+                            swal.showLoading();
                         }
-                    })
+                    });
                 },
                 data: new FormData(this),
                 contentType: false,
@@ -56,7 +56,7 @@ jQuery(document).ready(function () {
                         type: 'success',
                         title: 'Tambah Barang',
                         text: 'Anda Berhasil Menambah Barang'
-                    })
+                    });
                     $('#formtambah')[0].reset();
                     $('#addModal').modal('hide');
                     datalelang.ajax.reload(null, false);
@@ -174,9 +174,9 @@ jQuery(document).ready(function () {
                             title: 'Menunggu',
                             html: 'Memproses data',
                             onOpen: () => {
-                                swal.showLoading()
+                                swal.showLoading();
                             }
-                        })
+                        });
                     },
                     data: {
                         id_barang: id_barang
@@ -186,8 +186,8 @@ jQuery(document).ready(function () {
                             'Hapus',
                             'Berhasil Terhapus',
                             'success'
-                        )
-                        datalelang.ajax.reload(null, false)
+                        );
+                        datalelang.ajax.reload(null, false);
                     }
                 });
             } else if (result.dismiss === swal.DismissReason.cancel) {
@@ -195,8 +195,8 @@ jQuery(document).ready(function () {
                     'Batal',
                     'Anda membatalkan penghapusan',
                     'error'
-                )
-            };
+                );
+            }
         });
 
     });
