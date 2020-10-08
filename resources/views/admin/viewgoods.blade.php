@@ -22,11 +22,11 @@
                     </i> Add Data
                 </a>
                 <a class="dropdown-item" href="{{ route('printpdf')}}">
-                    <i class="fas fa-file fa-sm fa-fw" style="color: blue;">
+                    <i class="fas fa-file-pdf fa-sm fa-fw" style="color: blue;">
                     </i> Generate Pdf
                 </a>
                 <a class="dropdown-item" href="">
-                    <i class="fas fa-table fa-sm fa-fw" style="color: green;">
+                    <i class="fas fa-file-excel fa-sm fa-fw" style="color: green;">
                     </i> Generate Excel
                 </a>
             </div>
@@ -36,7 +36,7 @@
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered text-center" cellspacing="0" width="100%" id="dataLelang">
-                <thead class="bg-primary text-white">
+                <thead class="text-white" style="background-color: #499bea;">
                     <tr>
                         <th>Id Barang</th>
                         <th>Nama Barang</th>
@@ -49,6 +49,19 @@
                         <th>Action</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>Id Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Tanggal Upload</th>
+                        <th>Harga Awal</th>
+                        <th>Deskripsi Barang</th>
+                        <th>Kategori Barang</th>
+                        <th>Foto Barang</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
                 <tbody>
                 </tbody>
             </table>
